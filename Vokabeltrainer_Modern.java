@@ -9,7 +9,7 @@ import javax.swing.table.*;
  * 🚀 Vokabeltrainer Pro - Modern UI Edition
  * Grok-Style Dark Theme
  */
-public class Vokabeltrainer {
+public class Vokabeltrainer_Modern {
     // Modern Color Scheme
     public static final Color BG_DARK = new Color(15, 23, 42);
     public static final Color BG_DARKER = new Color(8, 14, 28);
@@ -43,19 +43,15 @@ public class Vokabeltrainer {
         button.setBackground(bgColor);
         button.setFocusPainted(false);
         button.setBorderPainted(false);
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
         button.setPreferredSize(new Dimension(Math.max(button.getPreferredSize().width + 25, 120), 40));
         button.setBorder(BorderFactory.createEmptyBorder(8, 20, 8, 20));
         
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             Color original = bgColor;
-            @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button.setBackground(bgColor.brighter());
             }
-            @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 button.setBackground(original);
             }
@@ -112,11 +108,11 @@ class VokabeltrainerApp extends JFrame {
         setSize(1100, 750);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(Vokabeltrainer.BG_DARK);
+        getContentPane().setBackground(Vokabeltrainer_Modern.BG_DARK);
 
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
-        mainPanel.setBackground(Vokabeltrainer.BG_DARK);
+        mainPanel.setBackground(Vokabeltrainer_Modern.BG_DARK);
 
         manageSetPanel = new ManageSetPanel(dbManager, this);
         quizPanel = new QuizPanel(dbManager, this);
@@ -264,23 +260,23 @@ class ManageSetPanel extends JPanel {
         this.app = app;
         
         setLayout(new BorderLayout(20, 20));
-        setBackground(Vokabeltrainer.BG_DARK);
+        setBackground(Vokabeltrainer_Modern.BG_DARK);
         setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
 
         // Header
         JPanel headerPanel = new JPanel(new BorderLayout(15, 15));
-        headerPanel.setBackground(Vokabeltrainer.BG_CARD);
+        headerPanel.setBackground(Vokabeltrainer_Modern.BG_CARD);
         headerPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Vokabeltrainer.ACCENT_BLUE, 3),
+            BorderFactory.createLineBorder(Vokabeltrainer_Modern.ACCENT_BLUE, 3),
             BorderFactory.createEmptyBorder(20, 25, 20, 25)
         ));
         
         JLabel titleLabel = new JLabel("📚 Vokabelsets verwalten");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        titleLabel.setForeground(Vokabeltrainer.TEXT_PRIMARY);
+        titleLabel.setForeground(Vokabeltrainer_Modern.TEXT_PRIMARY);
         headerPanel.add(titleLabel, BorderLayout.WEST);
 
-        JButton switchButton = Vokabeltrainer.createModernButton("🎯 Zum Quiz", Vokabeltrainer.ACCENT_PURPLE);
+        JButton switchButton = Vokabeltrainer_Modern.createModernButton("🎯 Zum Quiz", Vokabeltrainer_Modern.ACCENT_PURPLE);
         switchButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         switchButton.addActionListener(e -> app.showQuizPanel());
         headerPanel.add(switchButton, BorderLayout.EAST);
@@ -289,22 +285,22 @@ class ManageSetPanel extends JPanel {
 
         // Main Card
         JPanel cardPanel = new JPanel(new BorderLayout(15, 15));
-        cardPanel.setBackground(Vokabeltrainer.BG_CARD);
+        cardPanel.setBackground(Vokabeltrainer_Modern.BG_CARD);
         cardPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Vokabeltrainer.BORDER_COLOR, 2),
+            BorderFactory.createLineBorder(Vokabeltrainer_Modern.BORDER_COLOR, 2),
             BorderFactory.createEmptyBorder(20, 20, 20, 20)
         ));
 
         // Control Panel
         JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        controlPanel.setBackground(Vokabeltrainer.BG_CARD);
+        controlPanel.setBackground(Vokabeltrainer_Modern.BG_CARD);
         
         JLabel setLabel = new JLabel("Set:");
         setLabel.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        setLabel.setForeground(Vokabeltrainer.TEXT_SECONDARY);
+        setLabel.setForeground(Vokabeltrainer_Modern.TEXT_SECONDARY);
         controlPanel.add(setLabel);
         
-        setComboBox = Vokabeltrainer.createModernComboBox();
+        setComboBox = Vokabeltrainer_Modern.createModernComboBox();
         setComboBox.setPreferredSize(new Dimension(280, 42));
         setComboBox.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         setComboBox.addActionListener(e -> loadVokabeln());
@@ -312,11 +308,11 @@ class ManageSetPanel extends JPanel {
 
         controlPanel.add(Box.createHorizontalStrut(10));
 
-        JButton newSetButton = Vokabeltrainer.createModernButton("➕ Neues Set", Vokabeltrainer.ACCENT_BLUE);
+        JButton newSetButton = Vokabeltrainer_Modern.createModernButton("➕ Neues Set", Vokabeltrainer_Modern.ACCENT_BLUE);
         newSetButton.addActionListener(e -> createNewSet());
         controlPanel.add(newSetButton);
 
-        JButton deleteSetButton = Vokabeltrainer.createModernButton("🗑 Set löschen", Vokabeltrainer.ACCENT_RED);
+        JButton deleteSetButton = Vokabeltrainer_Modern.createModernButton("🗑 Set löschen", Vokabeltrainer_Modern.ACCENT_RED);
         deleteSetButton.addActionListener(e -> deleteCurrentSet());
         controlPanel.add(deleteSetButton);
 
@@ -334,11 +330,11 @@ class ManageSetPanel extends JPanel {
         vokabelTable = new JTable(tableModel);
         vokabelTable.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         vokabelTable.setRowHeight(40);
-        vokabelTable.setBackground(Vokabeltrainer.BG_DARKER);
-        vokabelTable.setForeground(Vokabeltrainer.TEXT_PRIMARY);
-        vokabelTable.setSelectionBackground(Vokabeltrainer.ACCENT_BLUE);
+        vokabelTable.setBackground(Vokabeltrainer_Modern.BG_DARKER);
+        vokabelTable.setForeground(Vokabeltrainer_Modern.TEXT_PRIMARY);
+        vokabelTable.setSelectionBackground(Vokabeltrainer_Modern.ACCENT_BLUE);
         vokabelTable.setSelectionForeground(Color.WHITE);
-        vokabelTable.setGridColor(Vokabeltrainer.BORDER_COLOR);
+        vokabelTable.setGridColor(Vokabeltrainer_Modern.BORDER_COLOR);
         vokabelTable.setShowGrid(true);
         vokabelTable.setIntercellSpacing(new Dimension(1, 1));
         vokabelTable.getColumnModel().getColumn(0).setPreferredWidth(60);
@@ -346,27 +342,27 @@ class ManageSetPanel extends JPanel {
         
         JTableHeader header = vokabelTable.getTableHeader();
         header.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        header.setBackground(Vokabeltrainer.BG_CARD);
-        header.setForeground(Vokabeltrainer.ACCENT_BLUE);
+        header.setBackground(Vokabeltrainer_Modern.BG_CARD);
+        header.setForeground(Vokabeltrainer_Modern.ACCENT_BLUE);
         header.setPreferredSize(new Dimension(header.getPreferredSize().width, 45));
-        header.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Vokabeltrainer.ACCENT_BLUE));
+        header.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Vokabeltrainer_Modern.ACCENT_BLUE));
         
         JScrollPane scrollPane = new JScrollPane(vokabelTable);
-        scrollPane.setBorder(BorderFactory.createLineBorder(Vokabeltrainer.BORDER_COLOR, 2));
-        scrollPane.getViewport().setBackground(Vokabeltrainer.BG_DARKER);
+        scrollPane.setBorder(BorderFactory.createLineBorder(Vokabeltrainer_Modern.BORDER_COLOR, 2));
+        scrollPane.getViewport().setBackground(Vokabeltrainer_Modern.BG_DARKER);
         
         cardPanel.add(scrollPane, BorderLayout.CENTER);
         add(cardPanel, BorderLayout.CENTER);
 
         // Bottom Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        buttonPanel.setBackground(Vokabeltrainer.BG_DARK);
+        buttonPanel.setBackground(Vokabeltrainer_Modern.BG_DARK);
         
-        JButton addButton = Vokabeltrainer.createModernButton("➕ Vokabel hinzufügen", Vokabeltrainer.ACCENT_GREEN);
+        JButton addButton = Vokabeltrainer_Modern.createModernButton("➕ Vokabel hinzufügen", Vokabeltrainer_Modern.ACCENT_GREEN);
         addButton.addActionListener(e -> addVokabel());
         buttonPanel.add(addButton);
 
-        JButton deleteButton = Vokabeltrainer.createModernButton("🗑 Vokabel löschen", Vokabeltrainer.ACCENT_ORANGE);
+        JButton deleteButton = Vokabeltrainer_Modern.createModernButton("🗑 Vokabel löschen", Vokabeltrainer_Modern.ACCENT_ORANGE);
         deleteButton.addActionListener(e -> deleteSelectedVokabel());
         buttonPanel.add(deleteButton);
 
@@ -382,11 +378,11 @@ class ManageSetPanel extends JPanel {
     }
 
     private void createNewSet() {
-        JTextField nameField = Vokabeltrainer.createModernTextField();
+        JTextField nameField = Vokabeltrainer_Modern.createModernTextField();
         nameField.setPreferredSize(new Dimension(300, 45));
         
         Object[] message = {
-            Vokabeltrainer.createLabel("Name des neuen Sets:", 14, Vokabeltrainer.TEXT_PRIMARY),
+            Vokabeltrainer_Modern.createLabel("Name des neuen Sets:", 14, Vokabeltrainer_Modern.TEXT_PRIMARY),
             nameField
         };
         
@@ -432,14 +428,14 @@ class ManageSetPanel extends JPanel {
             return;
         }
 
-        JTextField originalField = Vokabeltrainer.createModernTextField();
-        JTextField translationField = Vokabeltrainer.createModernTextField();
+        JTextField originalField = Vokabeltrainer_Modern.createModernTextField();
+        JTextField translationField = Vokabeltrainer_Modern.createModernTextField();
         originalField.setPreferredSize(new Dimension(300, 45));
         translationField.setPreferredSize(new Dimension(300, 45));
         
         Object[] message = {
-            Vokabeltrainer.createLabel("Original:", 14, Vokabeltrainer.TEXT_PRIMARY), originalField,
-            Vokabeltrainer.createLabel("Übersetzung:", 14, Vokabeltrainer.TEXT_PRIMARY), translationField
+            Vokabeltrainer_Modern.createLabel("Original:", 14, Vokabeltrainer_Modern.TEXT_PRIMARY), originalField,
+            Vokabeltrainer_Modern.createLabel("Übersetzung:", 14, Vokabeltrainer_Modern.TEXT_PRIMARY), translationField
         };
 
         if (JOptionPane.showConfirmDialog(this, message, "Neue Vokabel", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
@@ -488,23 +484,23 @@ class QuizPanel extends JPanel {
         this.app = app;
         
         setLayout(new BorderLayout(20, 20));
-        setBackground(Vokabeltrainer.BG_DARK);
+        setBackground(Vokabeltrainer_Modern.BG_DARK);
         setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
 
         // Header
         JPanel headerPanel = new JPanel(new BorderLayout(15, 15));
-        headerPanel.setBackground(Vokabeltrainer.BG_CARD);
+        headerPanel.setBackground(Vokabeltrainer_Modern.BG_CARD);
         headerPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Vokabeltrainer.ACCENT_PURPLE, 3),
+            BorderFactory.createLineBorder(Vokabeltrainer_Modern.ACCENT_PURPLE, 3),
             BorderFactory.createEmptyBorder(20, 25, 20, 25)
         ));
         
         JLabel titleLabel = new JLabel("🎯 Quiz-Modus");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        titleLabel.setForeground(Vokabeltrainer.TEXT_PRIMARY);
+        titleLabel.setForeground(Vokabeltrainer_Modern.TEXT_PRIMARY);
         headerPanel.add(titleLabel, BorderLayout.WEST);
 
-        JButton switchButton = Vokabeltrainer.createModernButton("📚 Zur Verwaltung", Vokabeltrainer.ACCENT_BLUE);
+        JButton switchButton = Vokabeltrainer_Modern.createModernButton("📚 Zur Verwaltung", Vokabeltrainer_Modern.ACCENT_BLUE);
         switchButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         switchButton.addActionListener(e -> app.showManagePanel());
         headerPanel.add(switchButton, BorderLayout.EAST);
@@ -513,22 +509,22 @@ class QuizPanel extends JPanel {
 
         // Control Panel
         JPanel controlPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 15));
-        controlPanel.setBackground(Vokabeltrainer.BG_CARD);
+        controlPanel.setBackground(Vokabeltrainer_Modern.BG_CARD);
         controlPanel.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Vokabeltrainer.BORDER_COLOR, 2),
+            BorderFactory.createLineBorder(Vokabeltrainer_Modern.BORDER_COLOR, 2),
             BorderFactory.createEmptyBorder(15, 20, 15, 20)
         ));
         
-        controlPanel.add(Vokabeltrainer.createLabel("Set:", 15, Vokabeltrainer.TEXT_SECONDARY));
-        setComboBox = Vokabeltrainer.createModernComboBox();
+        controlPanel.add(Vokabeltrainer_Modern.createLabel("Set:", 15, Vokabeltrainer_Modern.TEXT_SECONDARY));
+        setComboBox = Vokabeltrainer_Modern.createModernComboBox();
         setComboBox.setPreferredSize(new Dimension(250, 42));
         setComboBox.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         controlPanel.add(setComboBox);
 
         controlPanel.add(Box.createHorizontalStrut(20));
-        controlPanel.add(Vokabeltrainer.createLabel("Modus:", 15, Vokabeltrainer.TEXT_SECONDARY));
+        controlPanel.add(Vokabeltrainer_Modern.createLabel("Modus:", 15, Vokabeltrainer_Modern.TEXT_SECONDARY));
         
-        modeComboBox = Vokabeltrainer.createModernComboBox();
+        modeComboBox = Vokabeltrainer_Modern.createModernComboBox();
         modeComboBox.addItem("📖 Original → Übersetzung");
         modeComboBox.addItem("🔄 Übersetzung → Original");
         modeComboBox.addItem("🎲 Gemischt");
@@ -537,7 +533,7 @@ class QuizPanel extends JPanel {
         controlPanel.add(modeComboBox);
 
         controlPanel.add(Box.createHorizontalStrut(20));
-        JButton startButton = Vokabeltrainer.createModernButton("▶ Quiz starten", Vokabeltrainer.ACCENT_GREEN);
+        JButton startButton = Vokabeltrainer_Modern.createModernButton("▶ Quiz starten", Vokabeltrainer_Modern.ACCENT_GREEN);
         startButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         startButton.addActionListener(e -> startQuiz());
         controlPanel.add(startButton);
@@ -545,15 +541,15 @@ class QuizPanel extends JPanel {
         // Quiz Card
         JPanel quizCard = new JPanel();
         quizCard.setLayout(new BoxLayout(quizCard, BoxLayout.Y_AXIS));
-        quizCard.setBackground(Vokabeltrainer.BG_CARD);
+        quizCard.setBackground(Vokabeltrainer_Modern.BG_CARD);
         quizCard.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Vokabeltrainer.BORDER_COLOR, 2),
+            BorderFactory.createLineBorder(Vokabeltrainer_Modern.BORDER_COLOR, 2),
             BorderFactory.createEmptyBorder(40, 40, 40, 40)
         ));
 
         scoreLabel = new JLabel(" ");
         scoreLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        scoreLabel.setForeground(Vokabeltrainer.ACCENT_BLUE);
+        scoreLabel.setForeground(Vokabeltrainer_Modern.ACCENT_BLUE);
         scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         quizCard.add(scoreLabel);
 
@@ -561,13 +557,13 @@ class QuizPanel extends JPanel {
 
         questionLabel = new JLabel("Wähle ein Set und starte das Quiz!");
         questionLabel.setFont(new Font("Segoe UI", Font.BOLD, 26));
-        questionLabel.setForeground(Vokabeltrainer.TEXT_PRIMARY);
+        questionLabel.setForeground(Vokabeltrainer_Modern.TEXT_PRIMARY);
         questionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         quizCard.add(questionLabel);
 
         quizCard.add(Box.createVerticalStrut(35));
 
-        answerField = Vokabeltrainer.createModernTextField();
+        answerField = Vokabeltrainer_Modern.createModernTextField();
         answerField.setMaximumSize(new Dimension(500, 50));
         answerField.setFont(new Font("Segoe UI", Font.PLAIN, 18));
         answerField.setEnabled(false);
@@ -583,22 +579,22 @@ class QuizPanel extends JPanel {
         quizCard.add(resultLabel);
 
         JPanel centerPanel = new JPanel(new BorderLayout(15, 15));
-        centerPanel.setBackground(Vokabeltrainer.BG_DARK);
+        centerPanel.setBackground(Vokabeltrainer_Modern.BG_DARK);
         centerPanel.add(controlPanel, BorderLayout.NORTH);
         centerPanel.add(quizCard, BorderLayout.CENTER);
         add(centerPanel, BorderLayout.CENTER);
 
         // Bottom Buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 0));
-        buttonPanel.setBackground(Vokabeltrainer.BG_DARK);
+        buttonPanel.setBackground(Vokabeltrainer_Modern.BG_DARK);
         
-        checkButton = Vokabeltrainer.createModernButton("✓ Prüfen", Vokabeltrainer.ACCENT_GREEN);
+        checkButton = Vokabeltrainer_Modern.createModernButton("✓ Prüfen", Vokabeltrainer_Modern.ACCENT_GREEN);
         checkButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
         checkButton.setEnabled(false);
         checkButton.addActionListener(e -> checkAnswer());
         buttonPanel.add(checkButton);
 
-        nextButton = Vokabeltrainer.createModernButton("➡ Weiter", Vokabeltrainer.ACCENT_BLUE);
+        nextButton = Vokabeltrainer_Modern.createModernButton("➡ Weiter", Vokabeltrainer_Modern.ACCENT_BLUE);
         nextButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
         nextButton.setEnabled(false);
         nextButton.addActionListener(e -> nextVokabel());
@@ -664,10 +660,10 @@ class QuizPanel extends JPanel {
         if (answerField.getText().trim().equalsIgnoreCase(correct)) {
             correctCount++;
             resultLabel.setText("✓ Richtig!");
-            resultLabel.setForeground(Vokabeltrainer.ACCENT_GREEN);
+            resultLabel.setForeground(Vokabeltrainer_Modern.ACCENT_GREEN);
         } else {
             resultLabel.setText("✗ Falsch! Richtig: " + correct);
-            resultLabel.setForeground(Vokabeltrainer.ACCENT_RED);
+            resultLabel.setForeground(Vokabeltrainer_Modern.ACCENT_RED);
         }
 
         answerField.setEnabled(false);
@@ -699,7 +695,7 @@ class QuizPanel extends JPanel {
         
         int pct = totalCount > 0 ? (int) ((double) correctCount / totalCount * 100) : 0;
         resultLabel.setText(String.format("Endergebnis: %d / %d (%d%%)", correctCount, totalCount, pct));
-        resultLabel.setForeground(Vokabeltrainer.ACCENT_PURPLE);
+        resultLabel.setForeground(Vokabeltrainer_Modern.ACCENT_PURPLE);
 
         JOptionPane.showMessageDialog(this, 
             String.format("Quiz beendet!\n\n✓ Richtig: %d\n✗ Falsch: %d\n📊 Ergebnis: %d%%", 

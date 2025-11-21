@@ -1,69 +1,80 @@
-# 📚 Vokabeltrainer - Java Edition
+# � Vokabeltrainer Pro - Modern Edition
 
-Ein vollständiger Vokabeltrainer in **EINER einzigen Java-Datei** mit SQLite-Datenbank!
+Ein **moderner** Vokabeltrainer mit **Grok-Style Dark Theme** - Alles in EINER Java-Datei!
 
 ## ✨ Features
 
-### 📋 2 Screens
-- **Verwaltung:** Vokabelsets erstellen, Vokabeln hinzufügen/löschen
-- **Prüfung/Quiz:** 3 Modi für effektives Lernen!
+### 🎨 **Modernes UI Design**
+- **Dark Theme** im Grok-Stil (dunkle Farben, moderne Akzente)
+- **Farbcodierte Buttons** (Blau, Lila, Grün, Rot, Orange)
+- **Große, lesbare Schrift** (Segoe UI)
+- **Smooth Hover-Effekte** auf allen Buttons
+- **Professionelle Tabellen** mit modernem Styling
 
-### 🎯 3 Prüfungsmodi
-1. **📖 Original → Übersetzung** (z.B. Englisch → Deutsch)
-2. **🔄 Übersetzung → Original** (z.B. Deutsch → Englisch) 
+### 📋 **2 Hauptseiten**
+- **📚 Verwaltung:** Vokabelsets & Vokabeln verwalten
+- **🎯 Quiz:** Interaktives Lernen mit 3 Modi
+
+### 🎯 **3 Quiz-Modi**
+1. **📖 Original → Übersetzung** (z.B. "hello" → "hallo")
+2. **🔄 Übersetzung → Original** (z.B. "hallo" → "hello") 
 3. **🎲 Gemischt** (beide Richtungen zufällig)
 
-### 💾 Datenbank
-- **SQLite** - Professionelle, dateibasierte Datenbank
+### 💾 **Datenbank**
+- **SQLite** - Professionelle Datenbank
 - Alle Daten in `vokabeltrainer.db`
-- Robust und zuverlässig
+- Zuverlässig und schnell
 
 ## 🚀 Installation & Start
 
-### Einfachster Weg (Windows):
+### **Windows - SUPER EINFACH:**
 
-**Doppelklick auf `start.bat`** - Fertig! 🎉
-
-Das Skript:
-- Lädt automatisch SQLite JDBC Treiber herunter
-- Kompiliert das Programm
-- Startet den Vokabeltrainer
-
-### Manuell:
-
-```bash
-# 1. SQLite JDBC Treiber herunterladen
-# https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.45.0.0/sqlite-jdbc-3.45.0.0.jar
-# Als "sqlite-jdbc.jar" speichern
-
-# 2. Kompilieren
-javac -encoding UTF-8 -cp ".;sqlite-jdbc.jar" Vokabeltrainer.java
-
-# 3. Starten
-java -cp ".;sqlite-jdbc.jar" Vokabeltrainer
 ```
+Doppelklick auf start.bat
+```
+
+**ODER im Terminal:**
+
+```powershell
+java -cp ".;sqlite-jdbc.jar;slf4j-api.jar;slf4j-simple.jar" Vokabeltrainer
+```
+
+### **Was start.bat macht:**
+- ✅ Lädt SQLite & SLF4J automatisch herunter
+- ✅ Kompiliert das Programm
+- ✅ Startet den Vokabeltrainer
 
 ## 📖 Verwendung
 
-1. **Set erstellen:** Klicke "➕ Neues Set"
-2. **Vokabeln hinzufügen:** Wähle Set aus, klicke "➕ Vokabel hinzufügen"
-3. **Prüfungsmodus wählen:** 
-   - Original → Übersetzung (klassisch)
-   - Übersetzung → Original (umgekehrt)
-   - Gemischt (beides zufällig)
-4. **Quiz starten:** Übersetzungen eingeben und Enter drücken
-5. **Score verfolgen:** Sieh deine Fortschritte in Echtzeit!
+1. **Set erstellen:** "➕ Neues Set" klicken
+2. **Vokabeln hinzufügen:** Set auswählen, "➕ Vokabel hinzufügen"
+3. **Quiz starten:** "🎯 Zum Quiz" → Modus wählen → "▶ Quiz starten"
+4. **Lernen:** Übersetzungen eingeben und Enter drücken!
+
+## 🎨 Design-Highlights
+
+- **Dunkler Hintergrund** (#0F172A) - angenehm für die Augen
+- **Akzentfarben:**
+  - 🔵 Blau (#3B82F6) - Primäre Aktionen
+  - 🟣 Lila (#9333EA) - Navigation
+  - 🟢 Grün (#22C55E) - Erfolg/Hinzufügen
+  - 🔴 Rot (#EF4444) - Löschen
+  - 🟠 Orange (#FB923C) - Sekundäre Aktionen
+- **Große Buttons** mit Hover-Effekten
+- **Moderne Tabelle** mit Farbcodierung
+- **Smooth Übergänge** zwischen Ansichten
 
 ## 📁 Dateien
 
-- **`Vokabeltrainer.java`** - Komplettes Programm in EINER Datei! 🎯
-- **`start.bat`** - Automatischer Start (lädt SQLite herunter)
-- **`vokabeltrainer.db`** - SQLite Datenbank (wird automatisch erstellt)
-- **`sqlite-jdbc.jar`** - JDBC Treiber (wird automatisch heruntergeladen)
+- ✅ **`Vokabeltrainer.java`** - DAS komplette Programm! 🎯
+- ✅ **`start.bat`** - Automatischer Starter
+- ✅ **`vokabeltrainer.db`** - SQLite Datenbank
+- ✅ **`sqlite-jdbc.jar`** - SQLite Treiber
+- ✅ **`slf4j-api.jar`** & **`slf4j-simple.jar`** - Logging
 
 ## 🛠 Technologie
 
-- **GUI:** Java Swing
-- **Datenbank:** SQLite (embedded)
-- **Alles in EINER Datei:** Einfach zu verwenden und zu verstehen!
-- **Nur 1 Dependency:** SQLite JDBC Treiber (automatischer Download)
+- **GUI:** Java Swing (mit custom Styling)
+- **Datenbank:** SQLite
+- **Design:** Grok-inspired Dark Theme
+- **Alles in 1 Datei:** ~630 Zeilen pure Power! ⚡
